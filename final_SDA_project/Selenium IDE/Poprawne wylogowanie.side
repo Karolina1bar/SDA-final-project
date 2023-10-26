@@ -1,0 +1,85 @@
+{
+  "id": "f08439de-c56d-45f5-9d1c-f00c7505eaff",
+  "version": "2.0",
+  "name": "Poprawne wylogowanie",
+  "url": "https://demo.guru99.com",
+  "tests": [{
+    "id": "4f1be333-c164-4ba5-afed-3cc00483255c",
+    "name": "Poprawne wylogowanie z Guru99",
+    "commands": [{
+      "id": "4fb3781a-2e3d-4251-8607-283130b5525f",
+      "comment": "",
+      "command": "open",
+      "target": "/Security/SEC_V1/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1be402a4-43db-4e71-ad7b-9149612f2b24",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1162x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2c4df1c-0334-4c7f-9815-758318d6af9b",
+      "comment": "",
+      "command": "type",
+      "target": "name=uid",
+      "targets": [
+        ["name=uid", "name"],
+        ["css=tr:nth-child(1) input", "css:finder"],
+        ["xpath=//input[@name='uid']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1303"
+    }, {
+      "id": "6184a7f0-6c47-495f-8932-63ad1ed85e8c",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=tr:nth-child(2) input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+      ],
+      "value": "Guru99"
+    }, {
+      "id": "35c75c67-9b00-4016-be54-4ae4dbbfd981",
+      "comment": "",
+      "command": "click",
+      "target": "name=btnLogin",
+      "targets": [
+        ["name=btnLogin", "name"],
+        ["css=tr:nth-child(3) input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='btnLogin']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34e79622-01f6-4bef-a47f-851604167037",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log out",
+      "targets": [
+        ["linkText=Log out", "linkText"],
+        ["css=.menusubnav > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Log out')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'Logout.php')]", "xpath:href"],
+        ["xpath=//div[3]/div/ul/li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log out')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "9199c77d-11e0-4cc9-9cd5-67570c21a3cb",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4f1be333-c164-4ba5-afed-3cc00483255c"]
+  }],
+  "urls": ["https://demo.guru99.com/"],
+  "plugins": []
+}
