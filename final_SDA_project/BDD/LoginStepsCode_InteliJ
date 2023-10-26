@@ -1,0 +1,54 @@
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginSteps {
+
+    WebDriver webDriver;
+    WebDriverWait wait;
+
+    @Before
+    public void openBrowser() {
+        System.setProperty("webdriver.chrome.driver", "C:\\WebDriversNew\\chromedriver.exe");
+        webDriver = new ChromeDriver();
+        wait = new WebDriverWait(webDriver,3);
+    }
+
+    @And("I open login page")
+    public void iOpenLoginPage() {
+        webDriver.get("https://demo.guru99.com/V1/index.php");
+    }
+
+    @When("I type {string} as login")
+    public void iTypeAsLogin(String login) {
+        webDriver.findElement(By.cssSelector("input[name='uid']")).sendKeys(login);
+    }
+
+    @And("I type {string} as password")
+    public void iTypeAsPassword(String password) {
+        webDriver.findElement(By.cssSelector("input[name='password']")).sendKeys(password);
+    }
+
+    @And("I click login button")
+    public void iClickLoginButton() {
+        webDriver.findElement(By.cssSelector("input[type='submit']")).click();
+    }
+
+    @Then("I am logged in")
+    public void iAmLoggedIn() {
+        wait.until(ExpectedConditions.urlToBe("https://demo.guru99.com/V1/html/Managerhomepage.php"));
+    }
+
+    @After
+    public void closeBrowser() {
+        webDriver.quit();
+    }
+}
